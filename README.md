@@ -8,7 +8,7 @@ Command line internet radio player.
 > - Fixed `pyproject.toml` with all runtime dependencies properly declared
 > - Raised minimum Python to **3.12** (drops legacy `importlib_resources` workarounds)
 > - Removed obsolete files (`setup.py.legacy`, `requirements_pipx.txt`, `pyproject-3.8.patch`)
-> - Installable via [`uv tool install`](docs/uv-install.md) for system-wide user access
+> - Installable via [`uv tool install`](docs/uv-install.md) for user-wide command-line access
 >
 > This fork is not intended for contribution back to upstream.
 

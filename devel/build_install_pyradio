@@ -503,21 +503,7 @@ else
     then
         PIPX_ISOLATE=1
     fi
-    # fix toml file for python 3.8
     PY_VERSION=$(python${TO_PYTHON} -c "import sys; print(f'{sys.version_info.major}.{sys.version_info.minor}')")
-    if [ "$PY_VERSION" = "3.8" ]
-    then
-        echo "Patching pyproject.toml for Python 3.8"
-        cp pyproject.toml pyproject.toml.BCK
-        patch -p0 < pyproject-3.8.patch || {
-            echo "Error applying the Python 3.8 patch
-    patch -p0 < pyproject-3.8.patch
-Please make sure patch is installed and try again
-    "
-    mv pyproject.toml.BCK pyproject.toml 
-    exit 1
-        }
-    fi
     if [ -z "$PIPX_ISOLATE" ]
     then
         $PIPX_CMD install $PIPX_EDITABLE --system-site-packages --force . || pipx_error
@@ -527,7 +513,6 @@ Please make sure patch is installed and try again
         [ -z "$PIPX_EDITABLE" ] && {
             # fix pipx issue: Do not check if the package is a path in the current working directory #1778
             cd devel
-            cat ../requirements_pipx.txt | sed -e 's/#.*//' | xargs $PIPX_CMD inject pyradio
             cd ..
             if [ $(uname -s) == "Darwin" ] || [ $(uname -s) == "darwin" ]
             then

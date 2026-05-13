@@ -1,8 +1,0 @@
-rich
-requests
-dnspython
-psutil
-netifaces
-python-dateutil
-charset-normalizer
-rapidfuzz

@@ -6,4 +6,7 @@ dist
 build
 .vimrc
 *.log
-*.sh
+.venv/
+__pycache__/
+.mypy_cache/
+.ruff_cache/

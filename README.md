@@ -2,6 +2,16 @@
 
 Command line internet radio player.
 
+> **This is a personal fork** ([aenon/pyradio](https://github.com/aenon/pyradio)) of the upstream [coderholic/pyradio](https://github.com/coderholic/pyradio).
+>
+> Changes from upstream:
+> - Fixed `pyproject.toml` with all runtime dependencies properly declared
+> - Raised minimum Python to **3.12** (drops legacy `importlib_resources` workarounds)
+> - Removed obsolete files (`setup.py.legacy`, `requirements_pipx.txt`, `pyproject-3.8.patch`)
+> - Installable via [`uv tool install`](docs/uv-install.md) for system-wide user access
+>
+> This fork is not intended for contribution back to upstream.
+
 ![PyRadio](https://members.hellug.gr/sng/pyradio/pyradio.png)
 
 ## Table of Contents
@@ -45,7 +55,7 @@ Command line internet radio player.
 and much more...
 
 ## Requirements
-* python 3.8+
+* python 3.12+
     - setuptools
     - wheel
     - requests
@@ -66,15 +76,29 @@ Linux users will have to install a [resource opener](https://wiki.archlinux.org/
 
 ## Installation
 
+The recommended way to install this fork is with [uv](https://docs.astral.sh/uv/):
+
+```bash
+uv tool install git+https://github.com/aenon/pyradio.git
+```
+
+Or from a local clone:
+
+```bash
+git clone git@github.com:aenon/pyradio.git
+uv tool install ./pyradio
+```
+
+See [docs/uv-install.md](docs/uv-install.md) for the full guide (updating, pulling upstream changes, etc.).
+
+<details>
+<summary>Upstream installation methods (for reference)</summary>
+
 The best way to install **PyRadio** is via a distribution package, if one exists (*Arch Linux* and derivatives can install [any of these packages](https://aur.archlinux.org/packages/?K=pyradio) from the AUR, *FreeBSD* users will find it in the [ports](https://www.freshports.org/audio/py-pyradio/), etc.).
 
 In any other case you will have to [build it from source](docs/build.md).
 
-**Note:** Please avoid installing **PyRadio** via **pip**. I (user [s-n-g](https://github.com/s-n-g) @ github) am not the creator of this project, nor do I maintain it on [The Python Package Index (PyPI)](https://pypi.org/project/pyradio/). As a result, the version available there is outdated and I cannot provide any support for it. \
-\
-Furthermore, please refrain from using any third-party packaging methods, such as **Snap** or **AppImage**. I am not affiliated with these services or projects, and I cannot guarantee the functionality or version of **PyRadio** provided through them. Additionally, I am unable to offer support for any issues related to these packaging methods. \
-\
-In any of the above cases, if you do ask for help, I will ask you to install your distro package (or build **PyRadio** from source), before attempting to provide any further help.
+</details>
 
 ## Basic usage
 

@@ -17,14 +17,14 @@ classifiers = [
 dependencies = [
     'importlib_resources; python_version<"3.9"',
     'importlib_resources; python_version=="3.10"',
-    'rapidfuzz'
-]
-
-[project.optional-dependencies]
-cli = [
-  "mpv",
-  "mplayer",
-  "vlc"
+    'rich',
+    'requests',
+    'dnspython',
+    'psutil',
+    'netifaces',
+    'python-dateutil',
+    'charset-normalizer',
+    'rapidfuzz',
 ]
 
 [project.scripts]
